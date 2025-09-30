@@ -4,10 +4,548 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>17 School</title>
-    <meta name="description" content="This is an English version School and college">
-    <meta name="keywords" content="EASY">
+    <meta name="description" content="17 School: Where learning is simple, innovative, and fun.">
+    <meta name="keywords" content="Education, School, Learning, STEM, CBSE">
     <meta name="author" content="17 School">
-    <link rel="stylesheet" href="style.css">
+    <style>
+        :root {
+            --primary: #121212; /* Deep charcoal for dark theme */
+            --secondary: #26A69A; /* Teal accent */
+            --text: #E0E0E0; /* Light gray for text */
+            --card-bg: #1E1E1E; /* Dark gray for cards */
+            --accent: #4B5EAA; /* Subtle blue for secondary accents */
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Helvetica, Arial, sans-serif;
+            background: var(--primary);
+            color: var(--text);
+            line-height: 1.6;
+        }
+
+        h1, h2, h3 {
+            font-family: Arial, sans-serif;
+            font-weight: bold;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Animations */
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        section {
+            animation: fadeIn 1s ease-out;
+        }
+
+        /* Header */
+        header {
+            background: var(--card-bg);
+            color: var(--text);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            padding: 20px 0;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+        }
+
+        header .container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+        }
+
+        header h1 {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+        }
+
+        header p {
+            font-size: 1.2rem;
+            opacity: 0.9;
+        }
+
+        header nav {
+            margin-top: 15px;
+        }
+
+        header nav a {
+            color: var(--text);
+            text-decoration: none;
+            margin: 0 15px;
+            font-size: 1.1rem;
+            font-weight: bold;
+            transition: color 0.3s ease;
+        }
+
+        header nav a:hover {
+            color: var(--secondary);
+        }
+
+        /* Sections */
+        section {
+            padding: 60px 0;
+        }
+
+        section h2 {
+            font-size: 2.5rem;
+            text-align: center;
+            margin-bottom: 20px;
+            position: relative;
+            color: var(--text);
+        }
+
+        section h2::after {
+            content: '';
+            width: 60px;
+            height: 4px;
+            background: var(--secondary);
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        /* Hero Section */
+        #Home {
+            background: linear-gradient(to bottom, var(--card-bg), var(--primary));
+            text-align: center;
+        }
+
+        #Home .hero-image {
+            width: 100%;
+            max-width: 800px;
+            height: auto;
+            border-radius: 10px;
+            margin-top: 20px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+        }
+
+        /* About Section */
+        .about-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin-top: 30px;
+        }
+
+        .about-card {
+            background: var(--card-bg);
+            padding: 20px;
+            border-radius: 10px;
+            text-align: center;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            backdrop-filter: blur(5px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .about-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 20px rgba(38, 166, 154, 0.3);
+        }
+
+        .about-card h3 {
+            font-size: 1.5rem;
+            color: var(--secondary);
+            margin-bottom: 10px;
+        }
+
+        .stats-grid {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            margin-top: 30px;
+            flex-wrap: wrap;
+        }
+
+        .stat-item {
+            text-align: center;
+        }
+
+        .stat-item span {
+            font-size: 2.5rem;
+            font-weight: bold;
+            color: var(--secondary);
+            display: block;
+        }
+
+        /* Notice Section */
+        #Notice ul {
+            list-style: none;
+            max-width: 600px;
+            margin: 20px auto;
+        }
+
+        #Notice li {
+            background: var(--card-bg);
+            padding: 15px;
+            margin-bottom: 10px;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        /* Admission Section */
+        .admission-steps {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin-top: 30px;
+            flex-wrap: wrap;
+        }
+
+        .step {
+            text-align: center;
+            background: var(--card-bg);
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+            width: 200px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .step:hover {
+            transform: translateY(-5px);
+        }
+
+        .step-number {
+            display: block;
+            font-size: 2rem;
+            font-weight: bold;
+            color: var(--secondary);
+            margin-bottom: 10px;
+        }
+
+        button {
+            background: var(--secondary);
+            color: var(--text);
+            border: none;
+            padding: 12px 24px;
+            border-radius: 50px;
+            font-size: 1.1rem;
+            cursor: pointer;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            margin: 20px auto;
+            display: block;
+        }
+
+        button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 15px rgba(38, 166, 154, 0.4);
+        }
+
+        /* Teachers Section */
+        .teachers-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            margin-top: 30px;
+        }
+
+        .teacher-card {
+            background: var(--card-bg);
+            padding: 20px;
+            border-radius: 10px;
+            text-align: center;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .teacher-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 20px rgba(38, 166, 154, 0.3);
+        }
+
+        .teacher-card img {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            margin-bottom: 10px;
+        }
+
+        .teacher-card h3 {
+            font-size: 1.3rem;
+            color: var(--text);
+        }
+
+        /* Gallery Section */
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 15px;
+            margin-top: 30px;
+        }
+
+        .gallery-grid img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: transform 0.3s ease;
+        }
+
+        .gallery-grid img:hover {
+            transform: scale(1.05);
+        }
+
+        /* Lightbox */
+        .lightbox {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.8);
+            display: none;
+            align-items: center;
+            justify-content: center;
+            z-index: 2000;
+        }
+
+        .lightbox img {
+            max-width: 90%;
+            max-height: 90%;
+            border-radius: 10px;
+        }
+
+        .lightbox-close {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            color: var(--text);
+            font-size: 2rem;
+            cursor: pointer;
+            font-family: Arial, sans-serif;
+        }
+
+        /* Testimonials Section */
+        .testimonials-grid {
+            display: flex;
+            overflow: hidden;
+            max-width: 800px;
+            margin: 30px auto;
+            position: relative;
+        }
+
+        .testimonial-card {
+            background: var(--card-bg);
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+            text-align: center;
+            min-width: 100%;
+            transition: transform 0.5s ease;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .testimonial-card p {
+            font-style: italic;
+            color: var(--text);
+            margin-bottom: 10px;
+        }
+
+        .testimonial-card cite {
+            font-weight: bold;
+            color: var(--secondary);
+        }
+
+        .carousel-controls {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin-top: 20px;
+        }
+
+        .carousel-btn {
+            background: var(--card-bg);
+            color: var(--text);
+            border: none;
+            padding: 10px;
+            border-radius: 50%;
+            cursor: pointer;
+            font-size: 1.2rem;
+            font-family: Arial, sans-serif;
+            transition: background 0.3s ease;
+        }
+
+        .carousel-btn:hover {
+            background: var(--secondary);
+        }
+
+        /* FAQ Section */
+        .faq-item {
+            background: var(--card-bg);
+            margin: 10px auto;
+            max-width: 800px;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .faq-item h3 {
+            font-size: 1.2rem;
+            padding: 15px;
+            cursor: pointer;
+            background: var(--card-bg);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            color: var(--text);
+        }
+
+        .faq-item p {
+            padding: 15px;
+            display: none;
+            background: var(--card-bg);
+        }
+
+        .faq-item.active p {
+            display: block;
+        }
+
+        .faq-item .toggle-icon::before {
+            content: '↓';
+        }
+
+        .faq-item.active .toggle-icon::before {
+            content: '↑';
+        }
+
+        /* Contact Section */
+        .contact-form {
+            max-width: 600px;
+            margin: 30px auto;
+            background: var(--card-bg);
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .contact-form input,
+        .contact-form textarea {
+            width: 100%;
+            padding: 12px;
+            margin-bottom: 15px;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 5px;
+            font-size: 1rem;
+            background: var(--primary);
+            color: var(--text);
+        }
+
+        .contact-form input:focus,
+        .contact-form textarea:focus {
+            outline: none;
+            border-color: var(--secondary);
+            box-shadow: 0 0 5px rgba(38, 166, 154, 0.3);
+        }
+
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin: 20px 0;
+        }
+
+        .social-icon {
+            color: var(--text);
+            font-size: 1.5rem;
+            text-decoration: none;
+            transition: color 0.3s ease;
+            font-family: Arial, sans-serif;
+        }
+
+        .social-icon:hover {
+            color: var(--secondary);
+        }
+
+        /* Back to Top Button */
+        .back-to-top-btn {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background: var(--secondary);
+            color: var(--text);
+            padding: 10px 15px;
+            border-radius: 50%;
+            text-decoration: none;
+            font-size: 1.2rem;
+            display: none;
+            transition: opacity 0.3s ease;
+        }
+
+        .back-to-top-btn.show {
+            display: block;
+            opacity: 1;
+        }
+
+        /* Footer */
+        footer {
+            background: var(--card-bg);
+            color: var(--text);
+            text-align: center;
+            padding: 20px 0;
+        }
+
+        .back-to-top {
+            color: var(--secondary);
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        .back-to-top:hover {
+            text-decoration: underline;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            header .container {
+                flex-direction: column;
+            }
+
+            header nav a {
+                margin: 10px 5px;
+                font-size: 1rem;
+            }
+
+            section h2 {
+                font-size: 2rem;
+            }
+
+            .hero-image {
+                max-width: 100%;
+            }
+
+            .admission-steps {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .step {
+                width: 100%;
+                max-width: 300px;
+            }
+        }
+    </style>
 </head>
 <body>
     <header>
@@ -40,16 +578,30 @@
             <p>Founded in 2000, 17 School has been a beacon of innovative education. We blend technology, creativity, and compassion to shape future leaders.</p>
             <div class="about-grid">
                 <div class="about-card">
-                    <h3>🎓 Academics</h3>
+                    <h3>Academics</h3>
                     <p>CBSE & State Board Curriculum with STEM focus.</p>
                 </div>
                 <div class="about-card">
-                    <h3>🎨 Activities</h3>
+                    <h3>Activities</h3>
                     <p>Music, Sports, Robotics, Drama & more!</p>
                 </div>
                 <div class="about-card">
-                    <h3>🌍 Global Exposure</h3>
+                    <h3>Global Exposure</h3>
                     <p>Exchange programs and virtual global classrooms.</p>
+                </div>
+            </div>
+            <div class="stats-grid">
+                <div class="stat-item">
+                    <span class="stat-counter" data-target="1200">0</span>
+                    <p>Students</p>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-counter" data-target="80">0</span>
+                    <p>Teachers</p>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-counter" data-target="20">0</span>
+                    <p>Awards</p>
                 </div>
             </div>
         </section>
@@ -57,17 +609,17 @@
         <section id="Notice">
             <h2>Latest Notices</h2>
             <ul>
-                <li>📢 vacation starts from June 1.</li>
-                <li>🏅 teachers meeting on Sep 28.</li>
-                <li>👩‍👧 teachers meeting on Oct 30.</li>
-                <li>📚 Final exams begin Nov 10.</li>
+                <li>Vacation starts from June 1, 2025.</li>
+                <li>Teachers' meeting on Sep 28, 2025.</li>
+                <li>Parents-Teachers meeting on Oct 30, 2025.</li>
+                <li>Final exams begin Nov 10, 2025.</li>
             </ul>
         </section>
 
         <section id="Admission">
             <h2>Admission Open</h2>
             <p>Apply now for the 2025 academic year. Limited seats available!</p>
-            <button>Apply Now</button>
+            <button onclick="alert('Redirecting to application form...')">Apply Now</button>
             <div class="admission-steps">
                 <div class="step">
                     <span class="step-number">1</span>
@@ -89,18 +641,18 @@
             <p>Meet our passionate and experienced educators.</p>
             <div class="teachers-grid">
                 <div class="teacher-card">
-                    <img src="https://via.placeholder.com/150?text=Ms.+Ali" alt="Ms. Q">
-                    <h3>Ms. Q</h3>
+                    <img src="https://via.placeholder.com/150?text=Redwan" alt="Redwan">
+                    <h3>Redwan</h3>
                     <p>Mathematics</p>
                 </div>
                 <div class="teacher-card">
-                    <img src="https://via.placeholder.com/150?text=Mr.+Roy" alt="Mr. W">
-                    <h3>Mr. W</h3>
+                    <img src="https://via.placeholder.com/150?text=K" alt="K">
+                    <h3>K</h3>
                     <p>Science</p>
                 </div>
                 <div class="teacher-card">
-                    <img src="https://via.placeholder.com/150?text=Ms.+Doe" alt="Ms. E">
-                    <h3>Ms. E</h3>
+                    <img src="https://via.placeholder.com/150?text=Parvin" alt="P">
+                    <h3></h3>
                     <p>English</p>
                 </div>
             </div>
@@ -109,10 +661,10 @@
         <section id="Gallery" class="gallery-section">
             <h2>Gallery</h2>
             <div class="gallery-grid">
-                <img src="https://via.placeholder.com/300?text=Event+1" alt="Event 1">
-                <img src="https://via.placeholder.com/300?text=Event+2" alt="Event 2">
-                <img src="https://via.placeholder.com/300?text=Classroom" alt="Classroom">
-                <img src="https://via.placeholder.com/300?text=Sports" alt="Sports">
+                <img src="https://via.placeholder.com/300?text=Event+1" alt="Event 1" onclick="openLightbox(this.src, this.alt)">
+                <img src="https://via.placeholder.com/300?text=Event+2" alt="Event 2" onclick="openLightbox(this.src, this.alt)">
+                <img src="https://via.placeholder.com/300?text=Classroom" alt="Classroom" onclick="openLightbox(this.src, this.alt)">
+                <img src="https://via.placeholder.com/300?text=Sports" alt="Sports" onclick="openLightbox(this.src, this.alt)">
             </div>
         </section>
 
@@ -121,27 +673,35 @@
             <div class="testimonials-grid">
                 <div class="testimonial-card">
                     <p>“My child loves going to school now. The teachers are amazing!”</p>
-                    <cite>— Mrs. X, Parent</cite>
+                    <cite>— Redwan, Parent</cite>
                 </div>
                 <div class="testimonial-card">
                     <p>“Best school for holistic development. Highly recommend!”</p>
-                    <cite>— Mr. K, Parent</cite>
+                    <cite>— Mahmud, Parent</cite>
                 </div>
+                <div class="testimonial-card">
+                    <p>“The activities and global exposure are unmatched!”</p>
+                    <cite>— Parvin, Parent</cite>
+                </div>
+            </div>
+            <div class="carousel-controls">
+                <button class="carousel-btn" onclick="prevTestimonial()">←</button>
+                <button class="carousel-btn" onclick="nextTestimonial()">→</button>
             </div>
         </section>
 
         <section id="FAQ">
             <h2>Frequently Asked Questions</h2>
             <div class="faq-item">
-                <h3>❓ What grades do you offer?</h3>
+                <h3>What grades do you offer? <span class="toggle-icon"></span></h3>
                 <p>We offer classes from Kindergarten to Grade 12.</p>
             </div>
             <div class="faq-item">
-                <h3>❓ Do you provide transport?</h3>
+                <h3>Do you provide transport? <span class="toggle-icon"></span></h3>
                 <p>Yes, we have AC buses covering major routes.</p>
             </div>
             <div class="faq-item">
-                <h3>❓ What is the student-teacher ratio?</h3>
+                <h3>What is the student-teacher ratio? <span class="toggle-icon"></span></h3>
                 <p>It’s 20:1 to ensure personalized attention.</p>
             </div>
         </section>
@@ -150,23 +710,125 @@
             <h2>Contact Us</h2>
             <p>Email: info@17school.edu | Phone: +01401445752</p>
             <div class="social-links">
-                <a href="https://www.linkedin.com/in/your-linkedin-profile/" target="_blank" class="social-icon">LinkedIn</a>
-                <a href="https://github.com/your-github-profile" target="_blank" class="social-icon">GitHub</a>
-                <a href="https://facebook.com" target="_blank" class="social-icon">Facebook</a>
-                <a href="https://instagram.com" target="_blank" class="social-icon">Instagram</a>
+                <a href="https://www.linkedin.com/in/17school" target="_blank" class="social-icon">LinkedIn</a>
+                <a href="https://github.com/17school" target="_blank" class="social-icon">GitHub</a>
+                <a href="https://facebook.com/17school" target="_blank" class="social-icon">Facebook</a>
+                <a href="https://instagram.com/17school" target="_blank" class="social-icon">Instagram</a>
             </div>
-            <form class="contact-form">
-                <input type="text" placeholder="Your Name" required>
-                <input type="email" placeholder="Your Email" required>
-                <textarea placeholder="Your Message" rows="4" required></textarea>
+            <form class="contact-form" id="contactForm">
+                <input type="text" placeholder="Your Name" id="name" required>
+                <input type="email" placeholder="Your Email" id="email" required>
+                <textarea placeholder="Your Message" rows="4" id="message" required></textarea>
                 <button type="submit">Send Message</button>
             </form>
         </section>
     </main>
 
+    <!-- Lightbox -->
+    <div class="lightbox" id="lightbox">
+        <span class="lightbox-close" onclick="closeLightbox()">X</span>
+        <img src="" alt="" id="lightbox-img">
+    </div>
+
+    <!-- Back to Top Button -->
+    <a href="#Home" class="back-to-top-btn">↑</a>
+
     <footer>
         <p>&copy; 2025 17 School. All rights reserved.</p>
-        <p><a href="#Home" class="back-to-top">▲ Back to Top</a></p>
+        <p><a href="#Home" class="back-to-top">Back to Top</a></p>
     </footer>
+
+    <script>
+        // Smooth Scrolling
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+
+        // Animated Counters
+        document.querySelectorAll('.stat-counter').forEach(counter => {
+            const updateCounter = () => {
+                const target = +counter.getAttribute('data-target');
+                const count = +counter.innerText;
+                const increment = target / 100;
+                if (count < target) {
+                    counter.innerText = Math.ceil(count + increment);
+                    setTimeout(updateCounter, 20);
+                } else {
+                    counter.innerText = target;
+                }
+            };
+            updateCounter();
+        });
+
+        // Gallery Lightbox
+        function openLightbox(src, alt) {
+            const lightbox = document.getElementById('lightbox');
+            const img = document.getElementById('lightbox-img');
+            img.src = src;
+            img.alt = alt;
+            lightbox.style.display = 'flex';
+        }
+
+        function closeLightbox() {
+            document.getElementById('lightbox').style.display = 'none';
+        }
+
+        // Testimonials Carousel
+        let currentTestimonial = 0;
+        const testimonials = document.querySelectorAll('.testimonial-card');
+        function showTestimonial(index) {
+            testimonials.forEach((card, i) => {
+                card.style.transform = `translateX(${-index * 100}%)`;
+            });
+        }
+
+        function nextTestimonial() {
+            currentTestimonial = (currentTestimonial + 1) % testimonials.length;
+            showTestimonial(currentTestimonial);
+        }
+
+        function prevTestimonial() {
+            currentTestimonial = (currentTestimonial - 1 + testimonials.length) % testimonials.length;
+            showTestimonial(currentTestimonial);
+        }
+
+        // FAQ Toggle
+        document.querySelectorAll('.faq-item h3').forEach(item => {
+            item.addEventListener('click', () => {
+                const faq = item.parentElement;
+                faq.classList.toggle('active');
+            });
+        });
+
+        // Contact Form Validation
+        document.getElementById('contactForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            const name = document.getElementById('name').value.trim();
+            const email = document.getElementById('email').value.trim();
+            const message = document.getElementById('message').value.trim();
+
+            if (name && email.includes('@') && message) {
+                alert('Thank you for your message! We will get back to you soon.');
+                this.reset();
+            } else {
+                alert('Please fill out all fields correctly.');
+            }
+        });
+
+        // Back to Top Button Visibility
+        window.addEventListener('scroll', () => {
+            const backToTopBtn = document.querySelector('.back-to-top-btn');
+            if (window.scrollY > 300) {
+                backToTopBtn.classList.add('show');
+            } else {
+                backToTopBtn.classList.remove('show');
+            }
+        });
+    </script>
 </body>
 </html>
